@@ -1,21 +1,18 @@
 <template>
   <v-app>
     <!-- appbar -->
-    <v-toolbar app dark color="light-blue darken-4">
+    <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span class="orange--text">EASY</span>
-        <span class="font-weight-light">MATEUS</span>
+        <img class="mt-2" width="100" src="./assets/mateus.png" alt="logomarca">
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn flat to="/">
-          <span class="mr-2">Home</span>
-        </v-btn>
+        <v-btn flat to="/">Home</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
     <!-- content -->
-    <v-content>
+    <v-content style="background-color: #0091EA">
       <router-view/>
     </v-content>
   </v-app>

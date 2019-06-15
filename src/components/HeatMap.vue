@@ -8,6 +8,6 @@
     </v-toolbar>
 
     <v-divider/>
-    <v-card-text>Traffic Chart</v-card-text>
+    <v-card-text></v-card-text>
   </v-card>
 </template>
