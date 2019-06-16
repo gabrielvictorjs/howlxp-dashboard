@@ -16,7 +16,6 @@
 
 <script>
 import EBar from "../components/charts/Bar";
-import API from "../services/API";
 export default {
   components: {
     EBar
@@ -43,8 +42,7 @@ export default {
             label: "Quantidades de pessoas",
             backgroundColor: "#12C546",
             data:
-              [20, 25, 32, 45, 65, 15, 25, 32, 25, 32, 45, 95, 13] ||
-              API.finalData
+              [20, 25, 32, 45, 65, 15, 25, 32, 25, 32, 45, 95, 13]
           }
         ]
       },
@@ -54,10 +52,6 @@ export default {
       }
     };
   },
-
-  mounted() {
-    API.monthVisitData();
-  }
 };
 </script>
 

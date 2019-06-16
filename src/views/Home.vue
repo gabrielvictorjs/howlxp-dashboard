@@ -1,12 +1,15 @@
 <template>
   <v-container grid-list-xl>
-    <h2 class="display-1 font-weight-black">Dashboard</h2>
+    <h2 class="display-1 primary--text text-uppercase font-weight-black"></h2>
     <v-layout row wrap>
-      <v-flex lg8>
+      <v-flex lg3>
+        <m-filter/>
+      </v-flex>
+      <v-flex lg6>
         <m-heat-map/>
       </v-flex>
 
-      <v-flex lg4>
+      <v-flex lg3>
         <m-traffic/>
       </v-flex>
     </v-layout>
@@ -16,10 +19,12 @@
 <script>
 import MHeatMap from "../components/HeatMap";
 import MTraffic from "../components/Traffic";
+import MFilter from "../components/Filter";
 export default {
   components: {
     MHeatMap,
-    MTraffic
+    MTraffic,
+    MFilter
   }
 };
 </script>
