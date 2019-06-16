@@ -5,11 +5,12 @@
       <v-flex lg3>
         <m-filter/>
       </v-flex>
-      <v-flex lg6>
+      <v-flex lg9>
         <m-heat-map/>
       </v-flex>
-
-      <v-flex lg3>
+    </v-layout>
+    <v-layout>
+      <v-flex lg12>
         <m-traffic/>
       </v-flex>
     </v-layout>
@@ -20,6 +21,7 @@
 import MHeatMap from "../components/HeatMap";
 import MTraffic from "../components/Traffic";
 import MFilter from "../components/Filter";
+import { mapState } from "vuex";
 export default {
   components: {
     MHeatMap,

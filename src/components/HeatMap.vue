@@ -8,7 +8,7 @@
     </v-toolbar>
 
     <v-divider/>
-    <v-card-text v-if="data">
+    <v-card-text>
       <v-img :src="data.img"></v-img>
     </v-card-text>
   </v-card>

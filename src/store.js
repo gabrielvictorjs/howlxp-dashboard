@@ -11,18 +11,25 @@ export default new Vuex.Store({
     data: {},
     storeNames: [],
     dates: [],
-    cicles: []
+    cicles: [],
+    peoples: []
   },
 
   actions: {
     getData({ commit }, fam) {
       dbRef
-        .child(`${fam.nameStore}/${fam.date}/${fam.cicle}`)
+        .child(`${fam.nameStore}/${fam.date}/${fam.id}`)
         .on("value", snap => {
           let dataIn = snap.val();
-          console.log(`${fam.nameStore}/${fam.date}/${fam.cicle}`, snap.val());
           commit("SET_DATA", { dataIn });
         });
+    },
+
+    getQuantityPeople({ commit }) {
+      dbRef.child("Loja1/20190616").on("value", snap => {
+        for (let key in snap.val())
+          commit("SET_QUANTITY_PEOPLE", { key: snap.val()[key].qtdpessoas });
+      });
     },
 
     getStoreName({ commit }) {
@@ -39,7 +46,8 @@ export default new Vuex.Store({
 
     getCicles({ commit }, fam) {
       dbRef.child(`${fam.storeName}/${fam.date}`).on("value", snap => {
-        for (let key in snap.val()) commit("SET_CICLES", { key });
+        for (let key in snap.val())
+          commit("SET_CICLES", { key: snap.val()[key].id });
       });
     }
   },
@@ -56,6 +64,34 @@ export default new Vuex.Store({
     },
     SET_DATES(state, payload) {
       state.dates.push(payload.key);
+    },
+    SET_QUANTITY_PEOPLE(state, payload) {
+      state.peoples.push(payload.key);
+    }
+  },
+  getters: {
+    dataCollection: state => {
+      return {
+        labels: [
+          "8-9",
+          "9-10",
+          "10-11",
+          "11-12",
+          "12-13",
+          "13-14",
+          "14-15",
+          "15-16",
+          "16-17",
+          "17-18"
+        ],
+        datasets: [
+          {
+            label: "Quantidades de pessoas",
+            backgroundColor: "#993399",
+            data: state.peoples
+          }
+        ]
+      };
     }
   }
 });
