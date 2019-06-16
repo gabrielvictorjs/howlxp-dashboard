@@ -8,6 +8,18 @@
     </v-toolbar>
 
     <v-divider/>
-    <v-card-text></v-card-text>
+    <v-card-text v-if="data">
+      <v-img :src="data.img"></v-img>
+    </v-card-text>
   </v-card>
 </template>
+
+<script>
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState(["data"])
+  }
+};
+</script>
+

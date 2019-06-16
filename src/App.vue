@@ -19,8 +19,16 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
-  name: "App"
+  name: "App",
+  methods: {
+    ...mapActions(["getStoreName"])
+  },
+
+  mounted() {
+    this.getStoreName();
+  }
 };
 </script>
 
